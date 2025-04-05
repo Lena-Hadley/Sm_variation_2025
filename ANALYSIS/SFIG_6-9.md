@@ -1,5 +1,5 @@
 # Supplementary figures 7-9
-```
+```{r}
 # Load libraries
 library("phytools")
 library("phangorn")
@@ -10,7 +10,7 @@ library("dplyr")
 library("ggtree")
 ```
 ### Load tree
-```
+```{r}
 tree <- midpoint(read.newick("iqtree.nwk")) 
 
 key <- read.table("890_meta.csv", header=TRUE, sep=",",comment.char = "")
@@ -22,7 +22,7 @@ key2$Simple6 <- ifelse(key2$V2!="1.00", key2$Simple5, NA)
 key3 <- subset(key2, select = -c(sample_ID))
 ```
 ### Plot trees
-```
+```{r}
 key2 <- merge(key,variants_l, by.x = c("sample_ID"), by.y = c("V1"), all.y = TRUE, all.x=TRUE)
 key3 <- subset(key2, select = -c(sample_ID))
 
@@ -187,7 +187,7 @@ HET_DEL <- ggtree(tree, layout="ape", aes(color=Simple5), size=0.2) %<+% subset(
   theme(legend.position = "none")
 ```
 ### Merge plots
-```
+```{r}
 test_b1 <- plot_grid(HET_102,HOM_102,
           HET_105,HET_105,
           HET_1005,HOM_1005,
