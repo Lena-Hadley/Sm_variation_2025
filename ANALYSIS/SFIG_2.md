@@ -1,17 +1,17 @@
 # Supplementary Figure 2. Inference of demographic history using SMC++ for *Schistosoma mansoni* subpopulations
 ### Load libraries
-```
+```{r}
 library("ggplot2")
 library("scales")
 ```
 ### Load data
-```
+```{r}
 smc2 <- read.csv("plot2.csv", header=TRUE)
 smc2 <- subset(smc, label!='SEN6' & label!='MAY3' & label!='MAY5' &
                   label!='SEN1' & label!='SEN2' )
 ```
 ### Plot data
-```
+```{r}
 ggplot(data=subset(smc2)) + 
   geom_line(aes(x=(x),y=log10(y), color=label), size=1) +
   scale_x_log10(expand=c(0,0), breaks = trans_breaks("log10", function(x) 10^x), 
