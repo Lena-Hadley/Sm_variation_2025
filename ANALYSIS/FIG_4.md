@@ -1,6 +1,6 @@
 # Figure 4: Relatedness between *Schistosoma mansoni* accessions from endemic regions
 ### Load libraries
-```
+```{r}
 # Load libraries
 library("ggtern")
 library("ggplot2")
@@ -9,7 +9,7 @@ library("dplyr")
 library("ggtree")
 ```
 ### FIG 4a: Ternary plot
-```
+```{r}
 ngs <- read.table("ngsrelated.new2.txt", header=TRUE)
 ngs2 <- read.table("both.kin.txt", header=TRUE)
 host <- read.table("host3.list", header=FALSE)
@@ -39,7 +39,7 @@ ggtern(data=subset(ngs_q10),aes(J9,J8,J7)) +
   Rlab(expression(K[2]), labelarrow = "K_0") 
 ```
 ### FIG 4c: Pre- vs Post-treatment nucleotide diversity
-```
+```{r}
 infra_pi<- read.table('auto_pi.pos2.txt', header=TRUE)  
 
 infra_ND <- ggplot(data=subset(infra_pi, pop2!="pop2"), aes(x=as.factor(pop), y=log10(as.numeric(avg_pi)), fill=pop2, color=pop2)) + 
