@@ -1,5 +1,5 @@
 # Figure 1
-```
+```{r}
 # Load libraries
 library("phytools")
 library("phangorn")
@@ -10,7 +10,7 @@ library("dplyr")
 library("ggtree")
 ```
 ### Figure 1b: Phylogeny
-```
+```{r}
 # Import metadata and IQTREE newick file
 key <- read.table("890_meta.csv", header=TRUE, sep=",",comment.char = "")
 tree <- midpoint(read.newick("iqtree.nwk")) 
@@ -32,7 +32,7 @@ ggtree::ggtree((tree), layout = "ape",aes(color=(Simple2)), size=0.2) %<+% subse
   geom_treescale(linesize = 0.5,width=0.05, color="grey85", x = 0.5)
 ```
 ### Figure 1c: Principal component analysis 
-```
+```{r}
 # Import metadata, import eigenvectors and eigenvalues from PLINK results
 key <- read.table("890_meta.csv", header=TRUE, sep=",",comment.char = "")
 df<- read.delim("pruned.eigenvec", header=TRUE, sep="\t")
@@ -77,7 +77,7 @@ pcaz <- ggplot(data=subset(df_3),aes((PC1),(PC2))) +
         axis.title = element_text(face = "bold", size=9, color="black"))
 ```
 #### FIG 1e: Nucleotide diversity
-```
+```{r}
 # Import PIXY results
 pi_all <- read.table("combined.pixy.5000.pop.CHR_pi.txt", header=TRUE)
 
@@ -124,7 +124,7 @@ piz <- ggplot(data=pi_all,aes(x=factor(pop, level = level_order),y=log10(avg_pi)
     na.value="grey75"))
 ```
 #### Figure 1e: Fixation index
-```
+```{r}
 # Import PIXY results (renamed files)
 fst_popgen <- read.table("combined.pixy.5000.pop.CHR_fst.txt", header=FALSE)
 
@@ -179,7 +179,7 @@ fst_plot <- ggplot(fst_lot, aes(V1, (V2), fill= V3)) +
     panel.grid = element_blank())
 ```
 ### Figure 1f: ADMIXTURE
-```
+```{r}
 # Import metadata
 key <- read.table("890_meta.csv", header=TRUE, sep=",",comment.char = "")
 
