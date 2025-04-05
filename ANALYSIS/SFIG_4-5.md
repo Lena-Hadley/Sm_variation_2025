@@ -6,12 +6,12 @@ library("ggplot2")
 library("reshape2")
 ```
 ### Load data
-```
+```{r}
 pzq <- read.csv("pzq.csv", header=TRUE)
 pzq_group <- pzq %>% group_by(Conc, Sample) %>% summarise_each(funs(mean,sd,se=sd(.)/sqrt(n())))
 ```
 ### Plot dose-response curves
-```
+```{r}
 A <- ggplot(data=subset(pzq_group, Sample=="Wild type "), aes(x=(Conc), y=Response_mean)) + theme_bw() + 
   geom_smooth(method = drm, method.args = list(fct = L.4()), se = FALSE, size=0.6, color="black") +
   scale_x_log10(breaks = scales::trans_breaks("log10", function(x) 10^x),labels = scales::trans_format("log10", scales::math_format(10^.x))) + 
@@ -195,7 +195,7 @@ M <- ggplot(data=subset(pzq_group, Sample=="Q1670K "), aes(x=(Conc), y=Response_
          axis.title.x = element_text(face="bold", color="black", size=8)) + coord_cartesian(clip = "off")
 ```
 ### Merge plots
-```
+```{r}
 ((A|B)/(C|D)/(E|F)/(G|H)) 
 
 (A|I)/(J|K)/(L|M)/(J|K)
