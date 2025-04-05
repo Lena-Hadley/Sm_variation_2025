@@ -1,1 +1,3 @@
-
+# Treat all .md files as R, except README
+*.md linguist-language=R
+README.md linguist-language=Markdown
