@@ -1,14 +1,14 @@
 # Supplmentary figure 13: Coefficient of variation scores
 ### Load packages
-```
+```{r}
 library("ggplot2")
 ```
 ### Read in data
-```
+```{r}
 cv <- read.table("cv_scores.csv", header=FALSE, sep=",")
 ```
 ### Plot data
-```
+```{r}
 ggplot(data=cv) + 
   geom_point(aes(x=V1, y=V2)) +
   scale_y_continuous(expand=c(0,0), limits=c(0.45,0.65)) +
