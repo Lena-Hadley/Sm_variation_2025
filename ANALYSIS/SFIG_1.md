@@ -1,5 +1,5 @@
 # Supplementary Figure 1: Diversity and differentiation of Lake Victoria *Schistosoma mansoni* populations
-```
+```{r}
 # Load libraries
 library("phytools")
 library("phangorn")
@@ -10,7 +10,7 @@ library("dplyr")
 library("ggtree")
 ```
 #### Supplementary figure 1a: Nucleotide diversity
-```
+```{r}
 # Import PIXY results
 pi_all <- read.table("combined.pixy.5000.pop.CHR_pi.txt", header=TRUE)
 
@@ -57,7 +57,7 @@ piz <- ggplot(data=pi_all,aes(x=factor(pop, level = level_order),y=log10(avg_pi)
     na.value="grey75"))
 ```
 #### Supplementary figure 1b: Fixation index
-```
+```{r}
 # Import PIXY results (renamed files)
 fst_popgen <- read.table("combined.pixy.5000.pop.CHR_fst.txt", header=FALSE)
 
