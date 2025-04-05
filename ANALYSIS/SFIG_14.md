@@ -1,12 +1,12 @@
 # Supplementary Figure 14
 ### Load libraries
-```
+```{r}
 library("ggplot2")
 library("reshape2")
 library("dplyr")
 ```
 ### FIG 14a: Principal component analysis (by sequencing batch)
-```
+```{r}
 # Load data
 key <- read.table("890_meta.csv", header=TRUE, sep=",",comment.char = "")
 df<- read.delim("pruned.eigenvec", header=TRUE, sep="\t")
@@ -42,7 +42,7 @@ by_batch <- ggplot(data=subset(df_3),aes((PC1),(PC2))) +
         axis.title = element_text(face = "bold", size=9, color="black"))
 ```
 ### FIG 14b: Principal component analysis (by sequencing batch) and location sampled
-```
+```{r}
 pcaz <- ggplot(data=subset(df_3),aes((PC1),(PC2))) +
   geom_point(data=subset(df_3, Simple2!="Tanzania"), aes(fill=Simple2, shape=as.factor(study_ID)),
              size = 2, alpha=0.75, color="black") +
@@ -72,7 +72,7 @@ pcaz <- ggplot(data=subset(df_3),aes((PC1),(PC2))) +
         axis.title = element_text(face = "bold", size=9, color="black"))
 ```
 ### FIG 14c: Coefficient of inbreeding by sequencing batch
-```
+```{r}
 ibc <- read.table("ibc.csv", header=TRUE, sep=",")
 ibc_2 <- (merge(key, ibc, all=FALSE, by.y = "INDV.", by.x='sample_ID_old')) 
 
@@ -102,7 +102,7 @@ c_INB <- ggplot(data=subset(ibc_2, species=="Schistosoma mansoni")) +
         panel.grid = element_blank()) 
 ```
 ### Merge plots
-```
+```{r}
 a_grid_sfb <- plot_grid(by_batch,by_batch, pcaz,pcaz, nrow=2, rel_widths = c(1,0.15))
 b_grid_sfb <- plot_grid(a_grid_sfb, c_INB, nrow=2, rel_heights = c(1,0.6))
 ggsave(filename = "bc_grid_sfb.svg",b_grid_sfb, units = c("cm"), width = 17, height=20, device = "svg")
