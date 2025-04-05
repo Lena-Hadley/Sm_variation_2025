@@ -1,17 +1,17 @@
 # Supplementary Figure 3: Genome-wide integrated haplotype scores (iHS) were calculated independently using unrelated accessions from four populations
 ### Load libraries
-```
+```{r}
 # Load libraries
 library("ggplot2")
 library("reshape2")
 library("dplyr")
 ```
 ### Load data
-```
+```{r}
 ihs <- read.table("all2.ihs.nosibs.txt", header=FALSE)
 ```
 ### Summarize iHS scores
-```
+```{r}
 ihs$START <- (RoundTo(ihs$V3, multiple = 5000, FUN = floor)+1)
 ihs$STOP <- (RoundTo(ihs$V3, multiple = 5000, FUN = ceiling))
 ihs_median <- aggregate((abs(V8))~V1+START+V10+STOP, ihs, median)
@@ -33,7 +33,7 @@ ihs_summary0_EAta_windows <- merge(ihs_summary0_EAta_min,ihs_summary0_EAta_max, 
 #write.table(ihs_summary0_EAta_windows,"ihs_summary0_EAta_windows.csv",row.names = FALSE, sep = ",")
 ```
 ### Plot iHS scores (per-location)
-```
+```{r}
 ihs_EA <- ggplot(data=subset(ihs_summary0_EAta, COUNT>10  & CHROM!="PAR1" & CHROM!="PAR2")) + 
   geom_point(aes(x=((START)/1000000),y=(IHS), color=COL), size=0.01) +
   scale_color_manual(values = rep(c("grey50","red"))) +
@@ -119,7 +119,7 @@ ihs_TORO <- ggplot(data=subset(ihs_summary0_TRta, COUNT>10  & CHROM!="PAR1" & CH
   facet_grid(.~CHROM, space = "free_x", scales="free_x")
 ```
 ### Merge plots
-```
+```{r}
 ihs_plots<- plot_grid(ihs_MKAD,ihs_EA,ihs_GN,ihs_TORO, ncol=1, labels = c("a","b","c","d"), label_size = 11, align = "v")
 ggsave(filename = "sfig_ihs.png",ihs_plots, units = c("cm"), width = 18.5, height=17.5)
 ```
