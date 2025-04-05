@@ -1,13 +1,13 @@
 # Supplementary Figure 10
 ### Load libraries
-```
+```{r}
 # Load libraries
 library("ggplot2")
 library("reshape2")
 library("dplyr")
 ```
 ### Load and summarize data
-```
+```{r}
 sub_cov <- read.table("chr3.cov")
 mean_covv <- read.table("3.cov.all")
 struc_ex <- read.table("struc_246790.txt")
@@ -15,7 +15,7 @@ all_cov_win <- merge(mean_covv, sub_cov, by.x = c("V1"), by.y = c("V1"))
 all_cov_win$diff <- all_cov_win$V5/all_cov_win$V2.x
 ```
 ### Plot structural variants in specific regions
-```
+```{r}
 MK0130 <- ggplot() + 
   geom_hline(yintercept = 1, color="grey50", alpha=0.8) +
   geom_rect(aes(xmin=2.627353,xmax=2.774807, ymin=0,ymax=10), fill="lightblue",alpha=0.25) +
