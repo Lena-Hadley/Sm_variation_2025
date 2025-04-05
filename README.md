@@ -11,7 +11,7 @@ Mass-drug administration (MDA) of human populations using praziquantel monothera
 
 ## Citation
 **Extensive transmission and variation in a functional receptor for praziquantel resistance in endemic *Schistosoma mansoni*.**\
-Duncan J. Berger, Sang-Kyu Park, Thomas Crellen, Tushabe John Vianney, Narcis B. Kabatereine, James A. Cotton, Richard Sanya, Alison Elliot, Edridah M. Tukahebwa, Moses Adriko, Claire J. Standley, Anouk Gouvras, Safari Kinung’hi, Helmut Haas, Muriel Rabone, Aidan Emery, Poppy H. L. Lamberton, Bonnie L. Webster, Fiona Allan, Sarah Buddenborg, Matthew Berriman, Jonathan S. Marchant, Stephen R. Doyle, Joanne P. Webster. *bioRxiv* 2024.08.29.610291. https://doi.org/10.1101/2024.08.29.610291.
+*bioRxiv* 2024.08.29.610291. https://doi.org/10.1101/2024.08.29.610291.
 
 ## Data availability
 The sequencing data generated in this study have been deposited in the European Nucleotide Archive (ENA) repository under project accession codes: [PRJEB42451](https://www.ebi.ac.uk/ena/browser/view/PRJEB42451), [PRJEB29904](https://www.ebi.ac.uk/ena/browser/view/PRJEB29904).
