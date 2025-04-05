@@ -1,11 +1,11 @@
 # Figure 2
-```
+```{r}
 # Load libraries
 library("ggplot2")
 library("gggenes")
 ```
 ### Lollipop plots
-```
+```{r}
 # Import files
 
 # Import domain coordinates in format: NAME|START|STOP
